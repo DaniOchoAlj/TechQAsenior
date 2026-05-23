@@ -9,14 +9,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class hooks {
-    WebDriver driver = new ChromeDriver();
+    public static WebDriver driver;
+
     @Before
     public void setUp() {
-            ChromeOptions options = new ChromeOptions();
-            Map<String, Object> prefs = new HashMap<>();
-            prefs.put("profile.password_manager_leak_detection", false);
-            options.setExperimentalOption("prefs", prefs);
-            driver = new ChromeDriver(options);
+        ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--disable-notifications");
+            options.addArguments("--disable-infobars");
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        options.setExperimentalOption("prefs", prefs);
+
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
         driver.get("https://dev-site.hegetsus.com/");
     }
 
