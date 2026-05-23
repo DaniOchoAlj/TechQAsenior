@@ -17,12 +17,14 @@ public class hooks {
             options.addArguments("--remote-allow-origins=*");
             options.addArguments("--disable-popup-blocking");
             options.addArguments("--disable-notifications");
+            options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
             options.addArguments("--disable-infobars");
         Map<String, Object> prefs = new HashMap<String, Object>();
         options.setExperimentalOption("prefs", prefs);
 
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
         driver.get("https://dev-site.hegetsus.com/");
     }
 

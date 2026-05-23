@@ -29,11 +29,11 @@ public class AboutUsPage {
         wait.until(ExpectedConditions.presenceOfElementLocated(jesusQuestion));
         driver.findElement(answerYesJesusQuest).click();
     }
-    public void fillForm () {
-        wait.until(ExpectedConditions.presenceOfElementLocated(myStorysName)).sendKeys("MyName");
-        driver.findElement(myStorysLastname).sendKeys("MyLastname");
-        driver.findElement(myStorysEmail).sendKeys("d@g.c");
-        driver.findElement(myStorysMsg).sendKeys("The message of the story.");
+    public void fillForm (String name, String lastname, String email, String msg) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(myStorysName)).sendKeys(name);
+        driver.findElement(myStorysLastname).sendKeys(lastname);
+        driver.findElement(myStorysEmail).sendKeys(email);
+        driver.findElement(myStorysMsg).sendKeys(msg);
     }
     public String submitStory () {
         driver.findElement(consentCheckbox).click();

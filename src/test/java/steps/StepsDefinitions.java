@@ -18,10 +18,10 @@ public class StepsDefinitions {
         homePage.browseAboutUsPage();
     }
 
-    @Cuando("responde a la pregunta sobre el cambio de pensamiento sobre jesus")
-    public void responde_a_la_pregunta_sobre_el_cambio_de_pensamiento_sobre_jesus() {
+    @Cuando("responde a la pregunta sobre el cambio de pensamiento sobre jesus {string} {string} {string} {string}")
+    public void responde_a_la_pregunta_sobre_el_cambio_de_pensamiento_sobre_jesus(String name,String lastname,String email,String msg) {
         aboutUsPage.answerJesusQuestion();
-        aboutUsPage.fillForm();
+        aboutUsPage.fillForm(name,lastname,email,msg);
         result = aboutUsPage.submitStory();
     }
 
