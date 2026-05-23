@@ -1,39 +1,54 @@
+# ====================================================================
+# ARCHIVOS DE COMPILACIÓN (MAVEN / JAVA)
+# ====================================================================
+# Ignora la carpeta donde Maven compila el código, baja dependencias temporales y guarda capturas
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-.kotlin
+*.class
+*.jar
+*.war
+*.ear
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# ====================================================================
+# CONFIGURACIÓN DEL IDE (INTELLIJ IDEA)
+# ====================================================================
+# Ignora las preferencias del espacio de trabajo personal de IntelliJ
+.idea/
 *.iml
+*.iws
 *.ipr
+out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Si compartes el proyecto en equipo, puedes conservar los diccionarios o estilos,
+# pero por ahora es mejor ignorar todo .idea para evitar conflictos de rutas locales.
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# ====================================================================
+# REPORTES Y RESULTADOS DE PRUEBAS
+# ====================================================================
+# Ignora los reportes locales generados. Allure se compila dinámicamente,
+# no queremos subir miles de archivos HTML/JSON al repositorio.
+allure-report/
+.allure/
+test-output/
+isuite-results/
 
-### VS Code ###
-.vscode/
+# Nota: Dejamos fuera 'target/allure-results' de forma segura ya que toda la carpeta 
+# 'target/' está ignorada en la primera sección.
 
-### Mac OS ###
+# ====================================================================
+# ESPECÍFICO DE MACOS (SISTEMA OPERATIVO)
+# ====================================================================
+# Archivos ocultos que macOS genera automáticamente al navegar por las carpetas
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# ====================================================================
+# LOGS Y CACHÉ
+# ====================================================================
+*.log
+.bsp/
+.scandir
